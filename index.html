@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globus 91 Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Окно создания профиля -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <h2>Регистрация Модератора 🚀</h2>
+            <p>Добро пожаловать в проект канала Globus 91! Создай свой игровой профиль:</p>
+            <input type="text" id="username-input" placeholder="Введите ваш ник..." maxlength="15">
+            
+            <p>Выбери аватарку:</p>
+            <div class="avatar-picker">
+                <span class="avatar-opt active" onclick="selectAvatar('👑')">👑</span>
+                <span class="avatar-opt" onclick="selectAvatar('🎮')">🎮</span>
+                <span class="avatar-opt" onclick="selectAvatar('⚡')">⚡</span>
+                <span class="avatar-opt" onclick="selectAvatar('🛸')">🛸</span>
+            </div>
+            
+            <button id="save-profile-btn" class="menu-btn">Создать Профиль</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Шапка -->
+        <header>
+            <h1>Globus 91 <span class="verified-badge">✓</span></h1>
+            <p>Официальный кликер канала</p>
+        </header>
+
+        <!-- Профиль игрока в стиле RUMS -->
+        <section class="profile-card">
+            <div class="profile-info">
+                <div id="user-avatar" class="profile-avatar">👑</div>
+                <div>
+                    <h4 id="user-name">Модератор</h4>
+                    <span class="rank-badge">Мл. Модератор</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Статистика -->
+        <section class="stats">
+            <div class="stat-box">Монеты: <span id="coins">0</span> 🪙</div>
+            <div class="stat-box">Клик: x<span id="click-power">1</span></div>
+            <div class="stat-box">Перерождения: <span id="rebirths">0</span> 🌟</div>
+        </section>
+
+        <!-- Кнопка-кликер -->
+        <main>
+            <button id="click-btn" class="main-clicker">ГЛОБУС</button>
+        </main>
+
+        <!-- Магазин Апгрейдов и Подарков -->
+        <section class="shop">
+            <h3>🛒 Магазин Globus RUMS</h3>
+            <div class="shop-item">
+                <span>+1 к клику (Цена: <span id="upgrade-cost">10</span> 🪙)</span>
+                <button id="buy-upgrade-btn">Купить</button>
+            </div>
+            <div class="shop-item">
+                <span>Перерождение (Цена: <span id="rebirth-cost">1000</span> 🪙)</span>
+                <button id="buy-rebirth-btn">Сброс</button>
+            </div>
+            
+            <!-- Подарки, которые можно купить в профиль -->
+            <div class="gift-shop-title">Подарки в инвентарь:</div>
+            <div class="shop-item">
+                <span>🏆 Золотой Кубок Лиги (Цена: 200 🪙)</span>
+                <button onclick="buyGift('cup', 200, '🏆')">Купить</button>
+            </div>
+            <div class="shop-item">
+                <span>🏎️ Спорткар Голубой (Цена: 500 🪙)</span>
+                <button onclick="buyGift('car', 500, '🏎️')">Купить</button>
+            </div>
+            <div class="shop-item">
+                <span>💐 Букет Роз (Цена: 50 🪙)</span>
+                <button onclick="buyGift('flowers', 50, '💐')">Купить</button>
+            </div>
+            <div class="shop-item">
+                <span>🔥 Огненное Сердце (Цена: 100 🪙)</span>
+                <button onclick="buyGift('heart', 100, '🔥')">Купить</button>
+            </div>
+        </section>
+
+        <!-- НОВЫЙ БЛОК: ИНВЕНТАРЬ ПОДАРКОВ ИЗ СКРИНШОТА -->
+        <section class="inventory-section">
+            <h3>🎁 Мои подарки</h3>
+            <div class="inventory-grid" id="inventory-grid">
+                <!-- Сюда скрипт сам добавит купленные вещи -->
+                <p id="empty-inventory-text">У вас пока нет подарков. Купите их в магазине!</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
